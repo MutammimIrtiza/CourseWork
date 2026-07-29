@@ -1,0 +1,1 @@
+javac -d out SmartHome.java SmartHomeTestRunner.java
