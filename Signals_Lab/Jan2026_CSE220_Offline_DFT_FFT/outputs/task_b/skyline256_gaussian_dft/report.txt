@@ -1,0 +1,8 @@
+Task B -- image blurring by 2D spectral convolution
+image path          : images/skyline256.png
+image shape         : (256, 256)
+kernel name / shape : gaussian / (21, 21)
+engine              : dft
+linear conv size    : (84, 84)
+transform size used : (84, 84)
+verification max err: 1.14e-14

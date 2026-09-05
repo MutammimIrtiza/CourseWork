@@ -1,0 +1,8 @@
+Task B -- image blurring by 2D spectral convolution
+image path          : images/skyline512.png
+image shape         : (512, 512, 3)
+kernel name / shape : bokeh / (19, 19)
+engine              : fft
+linear conv size    : (82, 82)
+transform size used : (128, 128)
+verification max err: 4.44e-15

@@ -1,0 +1,26 @@
+Task B -- runtime benchmark
+
+Study 1: fixed 15 x 15 kernel, growing image
+
+           N      Naive DFT (row-column)    Radix-2 FFT (row-column)  Direct spatial convolution
+------------------------------------------------------------------------------------------------
+          16                    0.003804                    0.008053                    0.008049
+          32                    0.009913                    0.036574                    0.037888
+          64                    0.051276                    0.165217                    0.175797
+         128                    0.299727                    0.612686                    0.769857
+         256                    2.661072                    2.681222                    3.306970
+         512                   18.783110                   12.767013                   12.116211
+
+plot: runtime_vs_image_size.png
+
+Study 2: fixed 256 x 256 image, growing kernel
+
+           K  Direct spatial convolution    Radix-2 FFT (row-column)
+--------------------------------------------------------------------
+           3                    0.143468                    2.688024
+           7                    0.647103                    2.661934
+          15                    2.696615                    2.557788
+          31                   11.319283                    2.421056
+          63                          --                    2.450374
+
+plot: runtime_vs_kernel_size.png

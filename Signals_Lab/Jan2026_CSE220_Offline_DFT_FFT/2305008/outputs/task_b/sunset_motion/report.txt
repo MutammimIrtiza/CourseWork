@@ -1,0 +1,8 @@
+Task B -- image blurring by 2D spectral convolution
+image path          : images/sunset512.png
+image shape         : (512, 512)
+kernel name / shape : motion / (41, 41)
+engine              : fft
+linear conv size    : (104, 104)
+transform size used : (128, 128)
+verification max err: 7.77e-16
