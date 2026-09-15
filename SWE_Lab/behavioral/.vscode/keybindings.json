@@ -1,0 +1,70 @@
+
+
+// press ctrl + shift + P and select "Preferences: Open Keyboard Shortcuts (JSON)" to open the keybindings.json file and add these
+
+
+[
+  {
+    "key": "alt+shift+s",
+    "command": "editor.action.sourceAction",
+    "when": "editorTextFocus && editorLangId == 'java'"
+  },
+  // Organize Imports
+  {
+    "key": "alt+shift+o",
+    "command": "editor.action.organizeImport",
+    "when": "editorTextFocus && editorLangId == 'java'"
+  },
+  // Generate Getters & Setters
+  {
+    "key": "alt+shift+g",
+    "command": "editor.action.codeAction",
+    "args": {
+      "kind": "source.generate.accessors",
+      "apply": "first"
+    },
+    "when": "editorTextFocus && editorLangId == 'java'"
+  },
+  // Generate Constructors
+  {
+    "key": "alt+shift+c",
+    "command": "editor.action.codeAction",
+    "args": {
+      "kind": "source.generate.constructors",
+      "apply": "first"
+    },
+    "when": "editorTextFocus && editorLangId == 'java'"
+  },
+  // Generate toString()
+  {
+    "key": "alt+shift+t",
+    "command": "editor.action.codeAction",
+    "args": {
+      "kind": "source.generate.toString",
+      "apply": "first"
+    },
+    "when": "editorTextFocus && editorLangId == 'java'"
+  },
+
+  // Override / Implement Methods
+  {
+    "key": "alt+shift+m",
+    "command": "editor.action.codeAction",
+    "args": {
+      "kind": "source.overrideMethods",
+      "apply": "first"
+    },
+    "when": "editorTextFocus && editorLangId == 'java'"
+  },
+  // Generate Delegate Methods
+  {
+    "key": "alt+shift+d",
+    "command": "editor.action.codeAction",
+    "args": {
+      "kind": "source.generate.delegateMethods",
+      "apply": "first"
+    },
+    "when": "editorTextFocus && editorLangId == 'java'"
+  }
+
+]

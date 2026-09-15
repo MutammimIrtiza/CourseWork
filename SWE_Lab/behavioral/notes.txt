@@ -1,0 +1,17 @@
+enum DisasterCategory {
+    EARTHQUAKE, FLOOD, FIRE
+}
+
+private Map<DisasterCategory, List<Citizen>> subscribers = new HashMap<>();
+
+for (DisasterCategory c : DisasterCategory.values()) {
+            subscribers.put(c, new ArrayList<>());
+}
+
+abstract class Office {
+    protected Coordinator coordinator;
+    public Office(Coordinator c) {this.coordinator = c;}
+}
+
+if(status.get(s.getId()) != Status.OFFICE_ORDER_ISSUED)
+
