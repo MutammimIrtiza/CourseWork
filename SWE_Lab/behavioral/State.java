@@ -51,6 +51,9 @@ class TrafficLight {
     private static TrafficLightState redState;
     private static TrafficLightState greenState;
 
+
+    DONT DO THIS, USE SETSTATE METHOD, AND PASS NEW 
+
     public TrafficLight() {
         redState = new RedState(this);
         greenState = new GreenState(this);

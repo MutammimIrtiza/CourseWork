@@ -2,16 +2,179 @@ enum DisasterCategory {
     EARTHQUAKE, FLOOD, FIRE
 }
 
-private Map<DisasterCategory, List<Citizen>> subscribers = new HashMap<>();
 
+private Map<DisasterCategory, List<Citizen>> subscribers = new HashMap<>();
 for (DisasterCategory c : DisasterCategory.values()) {
             subscribers.put(c, new ArrayList<>());
 }
+
 
 abstract class Office {
     protected Coordinator coordinator;
     public Office(Coordinator c) {this.coordinator = c;}
 }
 
+
 if(status.get(s.getId()) != Status.OFFICE_ORDER_ISSUED)
 
+
+event.equals("check")
+
+=======================================================
+RETURN MIN FROM List<Task> tasks:
+return tasks.stream()
+        .min(Comparator.comparingInt(Task::getStartTime))
+        .orElse(null);
+
+
+===================================
+check if any task matches a condition:
+// Rule 1 Check: Urgent Workload
+boolean hasHighPriority = 
+         waitingQueue.stream()
+        .anyMatch(t -> t.getPriority() == Priority.HIGH); // t is task
+if (hasHighPriority) {
+    return priorityStrategy;
+}
+
+=================================
+count how many match a condition:
+// Rule 2 Check: Short-Task Workload
+long shortTaskCount = waitingQueue.stream()
+        .filter(t -> t.getExecutionTime() <= 3)
+        .count();
+if (shortTaskCount >= 3) {
+    return sjfStrategy;
+}
+
+
+
+
+
+=========================================================
+public class StudentService {
+
+    // Defined ONCE as a reusable constant or class variable
+    public static final Comparator<Student> CUSTOM_COMPARATOR = Comparator
+        .comparingInt(Student::getScore).reversed() // LOW TO HIGH
+        .thenComparing((a, b) -> {
+            if (a.getStatus() == Status.ACTIVE && b.getStatus() != Status.ACTIVE) return -1;
+            if (a.getStatus() != Status.ACTIVE && b.getStatus() == Status.ACTIVE) return 1;
+            return 0;
+        })
+        .thenComparing(Student::getName);
+
+    public void processStudents(List<Student> students, Student s1, Student s2) {
+        
+        // 1. Use it for batch sorting a collection
+        students.sort(CUSTOM_COMPARATOR);
+
+        // 2. Use it for a single comparison in an if-statement
+        if (CUSTOM_COMPARATOR.compare(s1, s2) < 0) {
+            System.out.println(s1.getName() + " takes priority over " + s2.getName());
+        }
+    }
+}
+
+====================
+string:
+String s = " Hello World! ";
+
+// Inspection
+int len = s.length();                 // 14
+char c = s.charAt(1);                 // 'H'
+boolean empty = s.isEmpty();          // false
+boolean contains = s.contains("Orl"); // false (case-sensitive)
+
+// Comparison
+boolean eq = s.equals("hello");       // Use .equals(), NEVER ==
+boolean eqIgnoreCase = s.equalsIgnoreCase(" hello world! ");
+
+// Transformation
+String clean = s.trim();              // "Hello World!" (strips leading/trailing space)
+String lower = s.toLowerCase();       // " hello world! "
+String replaced = s.replace('o', 'x');// " Hellx Wxrld! "
+String sub = s.substring(1, 6);       // "Hello" (index start inclusive, end exclusive)
+
+// Splitting & Conversion
+String[] parts = clean.split(" ");    // ["Hello", "World!"]
+char[] chars = clean.toCharArray();   // convert to character array
+String numStr = String.valueOf(42);   // "42" (primitive to String)
+int num = Integer.parseInt("42");     // 42 (String to primitive)
+
+
+
+=====================
+List<String> list = new ArrayList<>();
+
+// Addition & Modification
+list.add("Apple");
+list.add("Banana");
+list.add(0, "Mango");                 // Insert at index 0: ["Mango", "Apple", "Banana"]
+list.set(1, "Orange");                // Replace element at index 1
+
+// Retrieval & Inspection
+String item = list.get(0);            // "Mango"
+int size = list.size();               // 3
+boolean hasItem = list.contains("Apple"); // false
+
+// Removal
+list.remove("Banana");                // Remove by value
+list.remove(0);                       // Remove by index
+
+// Sorting
+Collections.sort(list);               // Natural alphabetical order
+list.sort((a, b) -> a.compareTo(b));  // Lambda sorting
+
+
+========================
+List<String> list = new ArrayList<>();
+
+// Addition & Modification
+list.add("Apple");
+list.add("Banana");
+list.add(0, "Mango");                 // Insert at index 0: ["Mango", "Apple", "Banana"]
+list.set(1, "Orange");                // Replace element at index 1
+
+// Retrieval & Inspection
+String item = list.get(0);            // "Mango"
+int size = list.size();               // 3
+boolean hasItem = list.contains("Apple"); // false
+
+// Removal
+list.remove("Banana");                // Remove by value
+list.remove(0);                       // Remove by index
+
+// Sorting
+Collections.sort(list);               // Natural alphabetical order
+list.sort((a, b) -> a.compareTo(b));  // Lambda sorting
+
+
+
+
+====================
+Set<Integer> set = new HashSet<>();
+
+set.add(10);
+set.add(20);
+set.add(10);                          // Duplicate ignored, return value is false
+
+boolean exists = set.contains(20);    // true (O(1) lookups)
+set.remove(10);
+int total = set.size();               // 1
+
+
+
+
+======================
+int[] nums = {5, 2, 8, 1, 9};
+
+Arrays.sort(nums);                    // Sorts array in-place: [1, 2, 5, 8, 9]
+String strRep = Arrays.toString(nums); // "[1, 2, 5, 8, 9]"
+
+// Fixed-size List backed by array
+List<String> fixedList = Arrays.asList("A", "B", "C"); 
+
+// Converting List to Array
+List<String> src = List.of("X", "Y");
+String[] arr = src.toArray(new String[0]);
